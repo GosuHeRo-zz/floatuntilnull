@@ -1,10 +1,12 @@
 import sys
+import re
+
 print ("What is your current body weight?")
 body_weight = raw_input()
-if 'int' not in str(type(body_weight)):
-    print ("Please input a number")
-    sys.exit(1)
-print ("So your body weight is, " + body_weight + ", would you like to know your current bmi and if it needs to be managed?")
+body_weight = re.sub('[^0-9]' , '', body_weight)
+body_weight = int(body_weight)
+
+print ("So your body weight is, " + str(body_weight) + " lbs" + ", would you like to know your current bmi and if it needs to be managed?")
 response = raw_input()
 if response == "yes":
     print ("Let's get started")
